@@ -1,0 +1,110 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Decoding Auditory Attention and Musical Emotions with
+  EarEEG (DAAMEE) Experiment Materials 
+message: >-
+  If you use these materials, please cite using the metadata
+  from this file. The code is under the MIT license; the 
+  stimuli are under CC-BY-4.0. Funding is provided by UKRI
+  and EPSRC through the ``UKRI Centre for Doctoral Training
+  in Artificial Intelligence and Music'', under grant
+  EP/S022694/1. We would also like to thank the music
+  production team for their contributions: Daksh Kathe,
+  Sebastian Löbbers, Kyle Rowland, and Dr. George Miklas.
+  Thanks to Dr. Winko An for his input on the experimental
+  plan and stimuli (particularly with regards to Part 2).
+  Thanks to colleagues at both Queen Mary University of
+  London and Aarhus University, for their assistance;
+  special thanks to Dr. Nhan D. T. Nguyen for his help
+  setting up the PsychoPy scripts. Thanks to Dr. Huy Phan
+  for his help in planning the experiment. Lastly, thanks to
+  everyone who took part in the pilot studies.
+type: software
+authors:
+  - family-names: Winnard
+    given-names: Christopher James
+    email: c.j.winnard@qmul.ac.uk
+    affiliation: 'Queen Mary, University of London'
+  - given-names: Marcus Thomas
+    family-names: Pearce
+    email: marcus.pearce@qmul.ac.uk
+    affiliation: 'Queen Mary, University of London'
+  - given-names: Preben
+    family-names: Kidmose
+    email: pki@ece.au.dk
+    affiliation: Aarhus University
+  - given-names: Kaare
+    family-names: Mikkelsen
+    email: mikkelsen.kaare@ece.au.dk
+    affiliation: Aarhus University
+repository-code: 'https://github.com/Chris-Winnard/DAAMEE-experiment'
+abstract: >-
+  The code and original musical stimuli for an experiment to
+  study emotion decoding and auditory attention decoding.
+  Although the experiment was designed with scalp and
+  cEEGrid EEG in mind, it can also be run with scalp EEG
+  alone (or even with other modalities). The repository also
+  features code for a pilot study which was used to
+  fine-tune a set of stimuli (Set07) which were frequently
+  perceived as being quieter than the others during early
+  pilot studies.
+keywords:
+  - experiment
+  - experimental paradigm
+  - EEG
+  - EEG experiment
+  - PsychoPy
+  - user interface
+commit: officialRelease1
+version: 1.0.0
+date-released: '2025-06-16'
+references:
+ - type: article
+   authors:
+    - given-names: Jonathan
+      family-names: Peirce
+    - given-names: Jeremy R.
+      family-names: Gray
+    - given-names: Sol
+      family-names: Simpson
+    - given-names: Michael
+      family-names: MacAskill
+    - given-names: Richard
+      family-names: Höchenberger
+    - given-names: Hiroyuki
+      family-names: Sogo
+    - given-names: Erik
+      family-names: Kastman
+    - given-names: Jonas K.
+      family-names: Lindeløv
+   title: "PsychoPy2: Experiments in behavior made easy"
+   year: 2019
+   journal: Behavior Research Methods
+   volume: 51
+   issue: 1
+   start: 195
+   end: 203
+   doi: 10.3758/s13428-018-01193-y
+   url: https://doi.org/10.3758/s13428-018-01193-y
+
+ - type: article
+   authors:
+    - given-names: Daniel
+      family-names: Müllensiefen
+    - given-names: Bruno
+      family-names: Gingras
+    - given-names: Jason
+      family-names: Musil
+    - given-names: Lauren
+      family-names: Stewart
+   title: "The musicality of non-musicians: An index for assessing  musical sophistication in the general population"
+   year: 2014
+   journal: PLOS ONE
+   volume: 9
+   issue: 2
+   start: e89642
+   doi: 10.1371/journal.pone.0089642
+   url: https://doi.org/10.1371/journal.pone.0089642
