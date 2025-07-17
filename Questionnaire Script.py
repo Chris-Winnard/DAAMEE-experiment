@@ -1,18 +1,13 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from psychopy import locale_setup
 from psychopy import sound, gui, visual, core, data, event, logging, clock, colors, layout
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
-
-import numpy as np  # whole numpy lib is available, prepend 'np.'
+import numpy as np
 from numpy import (sin, cos, tan, log, log10, pi, average,
                    sqrt, std, deg2rad, rad2deg, linspace, asarray)
 from numpy.random import random, randint, normal, shuffle, choice as randchoice
 import os  # handy system and path functions
 import sys  # to get file system encoding
-
 import psychopy.iohub as io
 from psychopy.hardware import keyboard
 
@@ -22,8 +17,8 @@ import Questionnaire_GSMI_Score_Calculator
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
 # Store info about the experiment session
-psychopyVersion = '2022.1.3'
-task = 'questionnaire'  # from the Builder filename that created this script
+psychopyVersion = '2023.1.2'
+task = 'questionnaire'
 expInfo = {'Participant ID': ''}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=task)
 if dlg.OK == False:
@@ -102,7 +97,6 @@ ioSession = '1'
 if 'session' in expInfo:
     ioSession = str(expInfo['session'])
 ioServer = io.launchHubServer(window=win, **ioConfig)
-eyetracker = None
 
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard(backend='iohub')
@@ -2160,7 +2154,5 @@ Questionnaire_GSMI_Score_Calculator.calcAndWrite(filename+'.csv')
 logging.flush()
 
 # make sure everything is closed down
-if eyetracker:
-    eyetracker.setConnectionState(False)
 win.close()
 core.quit()

@@ -36,5 +36,3 @@ def calcAndWrite(questionnaireFile):
     df.insert(25, "Perception score", perceptionScore)
     df.insert(26, "Emotion score", emotionScore)
     df.to_csv(questionnaireFile)
-    
-    return

@@ -1,10 +1,9 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+"attnOneInstNoOBs"
 
 from psychopy import locale_setup
 from psychopy import sound, gui, visual, core, data, event, logging, clock, colors, prefs
 prefs.hardware['audioLatencyMode'] = '3'
-prefs.hardware['audioDevice'] = 'Speakers (DAC8PRO)' #Just "Scarlett 18i8 USB" ?
+prefs.hardware['audioDevice'] = 'Speakers (DAC8PRO)'
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
 import numpy as np
@@ -48,8 +47,8 @@ mm = Mixer(outs=PART_3_OUT_CHANNELS)
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
 # Store info about the experiment session
-psychopyVersion = '2022.1.3'
-task = 'attnOneInstNoOBs'  # from the Builder filename that created this script
+psychopyVersion = '2023.1.2'
+task = 'attnOneInstNoOBs'
 expInfo = {'Participant ID': ''}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=task)
 if dlg.OK == False:
@@ -126,7 +125,6 @@ ioSession = '1'
 if 'session' in expInfo:
     ioSession = str(expInfo['session'])
 ioServer = io.launchHubServer(window=win, **ioConfig)
-eyetracker = None
 
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard(backend='iohub')
@@ -581,7 +579,7 @@ for thisBlock0 in block0:
                 mm.setAmp(i, i, spk_volume[i])
             practiceTrialAudioStartTime = globalClock.getTime()
             block0.addData('Practice Music Start Time', practiceTrialAudioStartTime)
-            mm.out() #Move this to earlier???
+            mm.out()
             stimuliStarted = True
      
         # check for quit (typically the Esc key)
@@ -929,7 +927,7 @@ for thisBlock1 in block1:
                 mm.setAmp(i, i, spk_volume[i])
             mainTrialAudioStartTime = globalClock.getTime()
             block1.addData('Main Trial Mus Start Time', mainTrialAudioStartTime)
-            mm.out() #Move this to earlier???
+            mm.out()
             stimuliStarted = True
      
         # check for quit (typically the Esc key)
@@ -1178,8 +1176,6 @@ thisExp.saveAsPickle(filename)
 logging.flush()
 
 # make sure everything is closed down
-if eyetracker:
-    eyetracker.setConnectionState(False)
 thisExp.abort()  # or data files will save again on exit
 win.close()
 core.quit()

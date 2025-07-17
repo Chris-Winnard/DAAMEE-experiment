@@ -21,7 +21,7 @@ message: >-
   special thanks to Dr. Nhan D. T. Nguyen for his help
   setting up the PsychoPy scripts. Thanks to Dr. Huy Phan
   for his help in planning the experiment. Lastly, thanks to
-  everyone who took part in the pilot studies.
+  the participants of both the experiment and the pilot studies.
 type: software
 authors:
   - family-names: Winnard
@@ -40,6 +40,10 @@ authors:
     family-names: Mikkelsen
     email: mikkelsen.kaare@ece.au.dk
     affiliation: Aarhus University
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.15798526
+    description: The DOI of the dataset.
 repository-code: 'https://github.com/Chris-Winnard/DAAMEE-experiment'
 abstract: >-
   The code and original musical stimuli for an experiment to

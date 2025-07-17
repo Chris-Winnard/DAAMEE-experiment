@@ -1,20 +1,17 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+"attnMultInstOBs"
 
 from psychopy import locale_setup
 from psychopy import sound, gui, visual, core, data, event, logging, clock, colors, layout, prefs
 prefs.hardware['audioLatencyMode'] = '3'
-prefs.hardware['audioDevice'] = 'Speakers (DAC8PRO)' #Just "Scarlett 18i8 USB" ?
+prefs.hardware['audioDevice'] = 'Speakers (DAC8PRO)'
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
-
 import numpy as np
 from numpy import (sin, cos, tan, log, log10, pi, average,
                    sqrt, std, deg2rad, rad2deg, linspace, asarray)
 from numpy.random import random, randint, normal, shuffle, choice as randchoice
 import os  # handy system and path functions
 import sys  # to get file system encoding
-
 import psychopy.iohub as io
 from psychopy.hardware import keyboard
 from pyo import *
@@ -25,8 +22,8 @@ sys.path.append('.')
 from constants import *
 
 SOUNDCARD_DEVICE_NAME = 'DAC8PRO'
-volume_level = 0.05 #0.009 Switch this and volume ratio back?
-volume_ratio = [1, 1, 7.5] #[1, 1, 27.5]
+volume_level = 0.05
+volume_ratio = [1, 1, 7.5]
 spk_volume = [x * volume_level for x in volume_ratio]
 PART_2_OUT_CHANNELS = 3
 TRIGGER_CHN = 2
@@ -50,8 +47,8 @@ mm = Mixer(outs=PART_2_OUT_CHANNELS)
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
 # Store info about the experiment session
-psychopyVersion = '2022.1.3'
-task = 'attnMultInstOBs'  # from the Builder filename that created this script
+psychopyVersion = '2023.1.2'
+task = 'attnMultInstOBs'
 expInfo = {'Participant ID': ''}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=task)
 if dlg.OK == False:
@@ -129,7 +126,6 @@ ioSession = '1'
 if 'session' in expInfo:
     ioSession = str(expInfo['session'])
 ioServer = io.launchHubServer(window=win, **ioConfig)
-eyetracker = None
 
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard(backend='iohub')
@@ -2008,8 +2004,6 @@ thisExp.saveAsPickle(filename)
 logging.flush()
 
 # make sure everything is closed down
-if eyetracker:
-    eyetracker.setConnectionState(False)
 thisExp.abort()  # or data files will save again on exit
 win.close()
 core.quit()

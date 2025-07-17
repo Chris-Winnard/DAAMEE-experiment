@@ -86,7 +86,7 @@ if __name__ == '__main__':
             #
             triggerEncoder.encode(TRIAL_END_CODE, file_len)
             event_metafile.write("{}\t{}\n".format(TRIAL_END_CODE, round(file_len*1000))) # end trig position in millisecond
-            triggerEncoder.generateTrigger(trig_filename, file_len+1.0) #shorter?
+            triggerEncoder.generateTrigger(trig_filename, file_len+1.0)
             event_metafile.close()
  
 #####################################################################################################################################################            

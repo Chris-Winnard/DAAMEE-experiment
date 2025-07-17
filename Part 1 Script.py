@@ -1,10 +1,9 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+"emotion"
 
 from psychopy import locale_setup
 from psychopy import sound, gui, visual, core, data, event, logging, clock, colors, prefs
 prefs.hardware['audioLatencyMode'] = '3'
-prefs.hardware['audioDevice'] = 'Speakers (DAC8PRO)' #Just "Scarlett 18i8 USB" ?
+prefs.hardware['audioDevice'] = 'Speakers (DAC8PRO)'
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
 import numpy as np
@@ -31,7 +30,6 @@ TRIGGER_CHN = 2
 s = Server(nchnls=PART_1_OUT_CHANNELS, duplex=0)
 devices = pa_get_output_devices()
 indx = []
-#for name in devices[0]:
 for i in range(len(devices[0])):
     name = devices[0][i]
     if SOUNDCARD_DEVICE_NAME in name:
@@ -49,7 +47,7 @@ mm = Mixer(outs=PART_1_OUT_CHANNELS)
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
 # Store info about the experiment session
-psychopyVersion = '2022.1.3'
+psychopyVersion = '2023.1.2'
 task = 'emotion'  # from the Builder filename that created this script
 expInfo = {'Participant ID': ''}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=task)
@@ -127,7 +125,6 @@ ioSession = '1'
 if 'session' in expInfo:
     ioSession = str(expInfo['session'])
 ioServer = io.launchHubServer(window=win, **ioConfig)
-eyetracker = None
 
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard(backend='iohub')
@@ -1680,8 +1677,6 @@ thisExp.saveAsPickle(filename)
 logging.flush()
 
 # make sure everything is closed down
-if eyetracker:
-    eyetracker.setConnectionState(False)
 thisExp.abort()  # or data files will save again on exit
 win.close()
 core.quit()
