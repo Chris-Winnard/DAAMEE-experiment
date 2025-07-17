@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Mar 29 14:36:42 2023
-
-@author: cjwin
-"""
-
 import numpy as np
 from numpy.random import default_rng
 rng = default_rng() 
@@ -18,10 +11,8 @@ negativeValenceSets = np.array([2, 4, 6, 7, 8, 11])
 activeArousalSets = np.array([1, 2, 6, 8, 10, 11])
 passiveArousalSets = np.array([3, 4, 5, 7, 9, 12])
 
-dominantDominanceSets = np.array([2, 4, 6, 8, 10, 11])
-submissiveDominanceSets = np.array([3, 5, 7, 9])   #Comment (noticed much later)- should this include 12, as its mildly submissive? May have been excluded for other constraints?
-#Checked and that has NOT affected the randomisation (even if only due to luck)
-#Dom and sub wrong way round (doesn't particularly matter for these purposes)
+dominantDominanceSets = np.array([3, 5, 7, 9])
+submissiveDominanceSets = np.array([2, 4, 6, 8, 10, 11, 12])
 
 sameEmotionCombos1 = np.array([3, 5, 9]) #+ve val, high, dom
 sameEmotionCombos2 = np.array([2, 6, 8, 11]) #-ve val, low, sub

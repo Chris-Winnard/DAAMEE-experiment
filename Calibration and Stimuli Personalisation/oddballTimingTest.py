@@ -1,4 +1,4 @@
-#Code to read through oddball start times list and check they are not too close.
+"Code to read through oddball start times list and check they are not too close."
 
 import pathlib
 import glob
@@ -26,8 +26,7 @@ upperFolderPath = currentFolderPath.parent.resolve()
 
 #Create output path:
 dataPath = str(upperFolderPath) + "/Data/"
-TriggerConfigFile = r"C:\Users\cjwin\OneDrive - Queen Mary, University of London\Documents\Music Interestingness in the Brain\Par 22-9-23\Trigger Generation (Not Inc P2 Trial Trigs)\Trigger Config.xlsx"
-
+TriggerConfigFile = str(upperFolderPath) + "Trigger Generation (Not Inc P2 Trial Trigs)\Trigger Config.xlsx"
 
 groupAssignmentFile = dataPath + "/Participant Groups.txt" #Needed for taking collecting stimuli, and saving to right place:
 with open(groupAssignmentFile, 'r') as f:
@@ -57,8 +56,6 @@ def checkTrigTimes(participantPath):
 
     def oddballTrigs(filename):
         
-        #Include times of start/end/oddballs in the metafile? At v least, have the order correct in metafile? <<Is it possible that the audio oddballs
-        #themselves aren't playing in right order? E.g, all 149 ones going before 150 ones in audio file???
         attendedInst = filename[-17:-13]
         
         thisMixVibr = filename[0:6] + "Vibr Oddball Test-" + filename[-17:] #E.g, Set01-Oddball Test Mix-Harm Attended.wav -> Set01-Vibr Oddball Test-Harm Attended.wav
@@ -138,15 +135,13 @@ practiceTrialStimuliNotPlayed = filtered_list = list(set(practiceTrialStimuliAll
 
 
 def checkTrigTimes_Specific(participantPath):
-    trig_clk = 16.0 #Hz. Correct for P03??
+    trig_clk = 16.0 #Hz.
     secsPerTrig = 8/16.0 #8 bits per trig
     
     #################################################################################################################################################
 
     def oddballTrigs_Specific(filename):
-        
-        #Include times of start/end/oddballs in the metafile? At v least, have the order correct in metafile? <<Is it possible that the audio oddballs
-        #themselves aren't playing in right order? E.g, all 149 ones going before 150 ones in audio file???
+
         attendedInst = filename[-17:-13]
         
         thisMixVibr = filename[0:6] + "Vibr Oddball Test-" + filename[-17:] #E.g, Set01-Oddball Test Mix-Harm Attended.wav -> Set01-Vibr Oddball Test-Harm Attended.wav

@@ -1,17 +1,10 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Mar 29 14:36:42 2023
-
-@author: cjwin
-"""
-
 import numpy as np
 import pathlib
 from numpy.random import default_rng
 rng = default_rng() 
 import os
 
-allParticipants = np.arange(1, 40) #16 participants
+allParticipants = np.arange(1, 32) #If 32 participants
 
 halfParticipants = round(len(allParticipants)/2)
 

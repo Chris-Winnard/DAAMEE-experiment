@@ -15,7 +15,7 @@ stimuliPath = str(upperFolderPath) + "/Stimuli"
 
 #Create output path:
 dataPath = str(upperFolderPath) + "/Data/"
-participantNo = "P12" #GRACE PERIOD IS ODDBALL LENGTH + 1 sec
+participantNo = "P05" #GRACE PERIOD IS ODDBALL LENGTH + 1 sec
 
 
 groupAssignmentFile = dataPath + "/Participant Groups.txt" #Needed for taking collecting stimuli, and saving to right place:
@@ -24,21 +24,21 @@ with open(groupAssignmentFile, 'r') as f:
     for line in lines:
         if "Group A1" in line and participantNo in line:
             participantPath = str(upperFolderPath) + "/Data/Group A1/" + participantNo + "/"
-            thisParticipantStimuliPath = stimuliPath + "\Megaset A"
+            thisParticipantStimuliPath = stimuliPath + "/Megaset A"
         elif "Group A2" in line and participantNo in line:
             participantPath = str(upperFolderPath) + "/Data/Group A2/" + participantNo + "/"
-            thisParticipantStimuliPath = stimuliPath + "\Megaset A"
+            thisParticipantStimuliPath = stimuliPath + "/Megaset A"
             
         elif "Group B1" in line and participantNo in line:
             participantPath = str(upperFolderPath) + "/Data/Group B1/" + participantNo + "/"
-            thisParticipantStimuliPath = stimuliPath + "\Megaset B"
+            thisParticipantStimuliPath = stimuliPath + "/Megaset B"
         elif "Group B2" in line and participantNo in line:
             participantPath = str(upperFolderPath) + "/Data/Group B2/" + participantNo + "/"
-            thisParticipantStimuliPath = stimuliPath + "\Megaset B"
+            thisParticipantStimuliPath = stimuliPath + "/Megaset B"
     f.close
     
 os.mkdir(participantPath)
-startTimesFile = (participantPath + "\Oddball Start Times.txt")
+startTimesFile = (participantPath + "/Oddball Start Times.txt")
 with open(startTimesFile, 'a') as f: #Create the file now to prevent any confusion later, because oddballsForbidden needs to read from it.
     f.close
 
@@ -85,7 +85,8 @@ def addOddballs(signalCopy, forbiddenOddballPeriods_Starts, possibleStartTimes):
     startTimes = np.zeros(numberOddballs)
     gracePeriod = idealOB_length+10*tenthSec
     
-    #We set it up so that oddballs can't overlap (+/- 1 oddball length buffer period around existing start times). Also include a 1s grace period either side. This applies both WITHIN streams, and between them.
+    #We set it up so that oddballs can't overlap (+/- 1 oddball length buffer period around existing start times). Also include a 1s grace period either side.
+    #This applies both WITHIN streams, and between them.
     for i in range(0, len(forbiddenOddballPeriods_Starts)):
         lowerLimit = forbiddenOddballPeriods_Starts[i] - gracePeriod
         upperLimit = forbiddenOddballPeriods_Starts[i] + gracePeriod
@@ -214,7 +215,7 @@ def oddballsForbidden(currentFilename, attendedInst):
         lines = f.readlines(-6) #Read last 6 lines in the file.
         for line in lines:
             if setString in line and attendedInst in line: #E.g Set04 ... Harm attended- should be up to two lines already written.
-                forbiddenOddballPeriods_StartsOneInstrument = np.array([re.findall("\d+\.\d+", line)]) #E.g, start times for vibraphone oddballs
+                forbiddenOddballPeriods_StartsOneInstrument = np.array([re.findall(r"\d+\.\d+", line)]) #E.g, start times for vibraphone oddballs
                 forbiddenOddballPeriods_Starts = np.append(forbiddenOddballPeriods_Starts, forbiddenOddballPeriods_StartsOneInstrument) #For all other instruments in the set.
         f.close
         
@@ -242,7 +243,7 @@ for file in os.scandir(thisParticipantStimuliPath):
         adaptedSignalEnd = signalEnd - 6*tenthSec - idealOB_length
         
         #Only want start times at zero crossings:
-        crossingsBoolean = librosa.zero_crossings(signal) #Threshold OK?
+        crossingsBoolean = librosa.zero_crossings(signal)
         possibleStartTimes = np.array([])
         for i in range(adaptedSignalStart, adaptedSignalEnd): #Only in acceptable range...
             if crossingsBoolean[i] == True: #...and only zero-crossings
@@ -251,8 +252,8 @@ for file in os.scandir(thisParticipantStimuliPath):
         
         originalSignalCopy = np.copy(signal) #Put this here- needed to add in non-oddball demos of files at start.
         
-        #Have multiple versions, all with random oddballs. This means that e.g for Set1 mix with Vibr attended
-        #there will be different vibraphone oddballs to Set1 mix with Keyb attended
+        #Have multiple versions, all with random oddballs. This means that e.g for Set01 mix with Vibr attended
+        #there will be different vibraphone oddballs to Set01 mix with Keyb attended
         attendedInst = "Vibr Attended"
         oddballFileWriter(currentFilename, signal, attendedInst)
         

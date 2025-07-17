@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Mar 29 14:36:42 2023
-
-@author: cjwin
-"""
-
 import numpy as np
 import pathlib
 from numpy.random import default_rng
@@ -19,11 +12,9 @@ negativeValenceSets = np.array(["02-Harm", "02-Keyb", "02-Vibr", "04-Harm", "04-
 activeArousalSets = np.array(["01-Harm", "01-Keyb", "01-Vibr", "02-Harm", "02-Keyb", "02-Vibr", "06-Harm", "06-Keyb", "06-Vibr", "08-Harm","08-Keyb","08-Vibr", "10-Harm","10-Keyb","10-Vibr", "11-Harm","11-Keyb","11-Vibr"])
 passiveArousalSets = np.array(["03-Harm","03-Keyb","03-Vibr", "04-Harm", "04-Keyb", "04-Vibr", "05-Harm","05-Keyb","05-Vibr", "07-Harm", "07-Keyb", "07-Vibr", "09-Harm","09-Keyb","09-Vibr", "12-Harm","12-Keyb","12-Vibr"])
 
-dominantDominanceSets = np.array(["02-Harm", "02-Keyb", "02-Vibr", "04-Harm", "04-Keyb", "04-Vibr", "06-Harm", "06-Keyb", "06-Vibr", "08-Harm","08-Keyb","08-Vibr", "10-Harm","10-Keyb","10-Vibr", "11-Harm","11-Keyb","11-Vibr"])
-submissiveDominanceSets = np.array(["03-Harm","03-Keyb","03-Vibr", "05-Harm","05-Keyb","05-Vibr", "07-Harm", "07-Keyb", "07-Vibr", "09-Harm","09-Keyb","09-Vibr"])
-#^Comment (noticed much later)- should this include 12, as its mildly submissive? May have been excluded for other constraints?
-#Checked and that has NOT affected the randomisation (even if only due to luck)
-#Dom and sub wrong way round (doesn't particularly matter for these purposes)
+dominantDominanceSets = np.array(["03-Harm","03-Keyb","03-Vibr", "05-Harm","05-Keyb","05-Vibr", "07-Harm", "07-Keyb", "07-Vibr", "09-Harm","09-Keyb","09-Vibr"])
+submissiveDominanceSets = np.array(["02-Harm", "02-Keyb", "02-Vibr", "04-Harm", "04-Keyb", "04-Vibr", "06-Harm", "06-Keyb", "06-Vibr", "08-Harm","08-Keyb","08-Vibr", "10-Harm",
+                                    "10-Keyb", "10-Vibr", "11-Harm","11-Keyb", "11-Vibr","12-Harm","12-Keyb","12-Vibr"])
 
 sameEmotionCombos1 = np.array(["03-Harm","03-Keyb","03-Vibr", "05-Harm","05-Keyb","05-Vibr", "09-Harm","09-Keyb","09-Vibr"]) #+ve val, high, dom
 sameEmotionCombos2 = np.array(["02-Harm", "02-Keyb", "02-Vibr", "06-Harm", "06-Keyb", "06-Vibr", "08-Harm","08-Keyb","08-Vibr", "11-Harm","11-Keyb","11-Vibr"]) #-ve val, low, sub
@@ -141,6 +132,4 @@ with open(semiMegasetFile, 'w') as f:
     f.write("\n")
     f.write("Semimegaset B2 - the sets to be attended to in part 3 by group B2: ")    
     f.write(str(semiMegaset_B2))
-    f.write("\n")
-    f.write("Remember to add in leading zeros for single-digit numbers.")
     f.close

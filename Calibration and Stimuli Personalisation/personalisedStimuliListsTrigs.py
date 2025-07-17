@@ -480,9 +480,7 @@ def Part2TrialTrigMaker(participantPath):
     #################################################################################################################################################
 
     def oddballTrigs(filename):
-        
-        #Include times of start/end/oddballs in the metafile? At v least, have the order correct in metafile? <<Is it possible that the audio oddballs
-        #themselves aren't playing in right order? E.g, all 149 ones going before 150 ones in audio file???
+
         attendedInst = filename[-17:-13]
         
         thisMixVibr = filename[0:6] + "Vibr Oddball Test-" + filename[-17:] #E.g, Set01-Oddball Test Mix-Harm Attended.wav -> Set01-Vibr Oddball Test-Harm Attended.wav
@@ -585,21 +583,19 @@ def Part2TrialTrigMaker(participantPath):
 
                     triggerEncoder.encode(TRIAL_END_CODE, file_len)
                     event_metafile.write("{}\t{}\n".format(TRIAL_END_CODE, round(file_len*1000))) # end trig position in millisecond
-                    triggerEncoder.generateTrigger(trig_filename, file_len+1.0) #shorter?
+                    triggerEncoder.generateTrigger(trig_filename, file_len+1.0)
                     event_metafile.close()
-            
-    return
 
 #################################################################################################################################################
 StimMixer(participantPath) #Create stimuli with gains applied: both single-stream, and
 #mixes of the oddball stimuli.
 
 #Additional note: trigger files (EXCEPT FOR P2 TRIALS) have already been created. By the nature of gainApplier and randomOddballCreator,
-#all pieces have the exact same lengths enforced, so can just use one start/end trigger pair for the Set1-Harm files
-#(i.e not different versions of the triggers for different participants), etc.
+#all pieces have the exact same lengths enforced, so can just use one start/end trigger pair for the Set01-Harm files
+#(i.e., not different versions of the triggers for different participants), etc.
 
 
 ListMaker(participantPath) #Create lists of the stimuli and the trigger files that can be used in the scripts
 #with minimal extra work.
 
-Part2TrialTrigMaker(participantPath)  #Note that for P2 trigger files: for oddball tests the start trigger is at the v start of the audio file.
+Part2TrialTrigMaker(participantPath)  #Note: for P2 trigger files, for oddball tests the start trigger is at the v start of the audio file.
