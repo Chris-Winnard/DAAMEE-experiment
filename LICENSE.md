@@ -1,6 +1,6 @@
 ## Code license: MIT License
 
-Copyright (c) 2025 Chris-Winnard
+Copyright (c) 2025 Chris Winnard
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -23,6 +23,8 @@ SOFTWARE.
 ---
 
 ## Music license: Creative Commons Attribution 4.0 International (CC-BY-4.0)
+
+Copyright (c) 2025 The Artists
 
 All original music in this repository is licensed under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license. You are free to share and adapt the music for any purpose, including commercial use, as long as appropriate credit is given to the original artist (as listed in each file’s metadata).
 
